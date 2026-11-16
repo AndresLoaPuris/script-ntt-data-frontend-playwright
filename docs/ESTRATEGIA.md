@@ -67,7 +67,7 @@ El encabezado aparece en todas las páginas internas, así que se modela una sol
 
 ### Hooks
 
-`hooks.ts` abre el navegador una vez por proceso, crea un contexto nuevo por escenario y lo cierra al final. Si un escenario falla, adjunta una captura de pantalla de página completa al reporte HTML.
+`hooks.ts` abre el navegador una vez por proceso, crea un contexto nuevo por escenario y lo cierra al final. Después de cada paso adjunta una captura de pantalla de página completa, nombrada con el texto del paso, así el reporte documenta visualmente todo el recorrido de cada caso, incluido el momento exacto de un fallo.
 
 ## Principios de diseño
 
@@ -93,5 +93,5 @@ El encabezado aparece en todas las páginas internas, así que se modela una sol
 - **`expect` de Playwright:** las aserciones web-first esperan automáticamente a que la página alcance el estado esperado, lo que evita esperas fijas y pruebas inestables.
 - **Navegador configurable:** la suite corre en Chromium por defecto y en Firefox o WebKit con la variable `BROWSER`.
 - **Ejecución en paralelo (2 procesos):** es posible porque cada escenario es independiente.
-- **Reporte HTML con panel de métricas:** Cucumber genera un JSON y `scripts/generate-report.ts` lo convierte, con Multiple Cucumber HTML Reporter, en un reporte en español con gráficos, datos de la ejecución (navegador, versión, sistema operativo) y el detalle de cada caso con su captura si falló. Es un comando aparte (`npm run report`) para poder generarlo incluso cuando hay fallos.
+- **Reporte HTML con panel de métricas:** Cucumber genera un JSON y `scripts/generate-report.ts` lo convierte, con Multiple Cucumber HTML Reporter, en un reporte en español con gráficos, datos de la ejecución (navegador, versión, sistema operativo) y el detalle de cada caso con una captura por paso. Las imágenes se guardan como archivos aparte para que el reporte siga siendo liviano. Es un comando aparte (`npm run report`) para poder generarlo incluso cuando hay fallos.
 - **CI en GitHub Actions:** cada push verifica los tipos, ejecuta la suite, genera el reporte aunque haya fallos y lo publica como artefacto.

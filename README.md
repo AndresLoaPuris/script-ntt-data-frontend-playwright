@@ -94,10 +94,11 @@ npm run report
 Se crea en `reports/html/index.html` y se abre directamente en el navegador. Está en español e incluye:
 - un panel con gráficos del estado de funcionalidades, escenarios y pasos,
 - los datos de la ejecución: navegador y versión, modo headless, sistema operativo, versión de Node, entorno y duración,
-- el detalle de cada escenario con su ID, sus pasos y, si falló, el error y la **captura de pantalla** de la página en ese momento,
+- el detalle de cada escenario con su ID y sus pasos; si falló, también el error esperado contra el recibido,
+- una **captura de pantalla de página completa después de cada paso**, en todos los escenarios (salvo los pasos que se ejecutan antes de abrir el sitio, como la carga del caso de prueba),
 - los escenarios y pasos más lentos.
 
-Cucumber también deja su reporte estándar en `reports/cucumber-report.html`.
+Para ver una captura, entra a una funcionalidad, expande un escenario y, debajo de cada paso, abre el adjunto con el nombre de ese paso. Las imágenes se guardan como archivos aparte dentro de `reports/html`, así las páginas del reporte cargan rápido aunque haya muchas capturas.
 
 `npm run report` es un comando aparte para que el reporte se pueda generar aunque haya pruebas fallidas, que es justo cuando más se necesita. Usa el navegador indicado en `BROWSER`, así que conviene ejecutarlo con la misma configuración que las pruebas.
 

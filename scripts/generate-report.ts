@@ -30,6 +30,7 @@ await generate({
   displayDuration: true,
   displayReportTime: true,
   humanReadableDuration: true,
+  externalizeMedia: true,
   metadata: {
     browser: { name: reporterBrowserNames[config.browser], version: await browserVersion() },
     device: config.headless ? 'Headless' : 'Con interfaz',
