@@ -1,0 +1,21 @@
+{
+  "name": "saucedemo-playwright-cucumber",
+  "version": "1.0.0",
+  "description": "Pruebas end-to-end de Sauce Demo con Playwright y Cucumber",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "cucumber-js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "13.3.0",
+    "@playwright/test": "1.65.1",
+    "@types/node": "24.19.2",
+    "exceljs": "4.4.0",
+    "typescript": "7.0.2"
+  }
+}
