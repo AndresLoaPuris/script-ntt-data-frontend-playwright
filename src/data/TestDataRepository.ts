@@ -5,9 +5,9 @@ import { TestCase } from './TestCase.ts';
 type Row = Record<string, string>;
 
 const SHEET_BY_ID_PREFIX: Record<string, string> = {
-  'TC-LOG': 'login',
-  'TC-CAR': 'carrito',
-  'TC-COM': 'compra',
+  'CP-LOGIN': 'login',
+  'CP-CARRITO': 'carrito',
+  'CP-COMPRA': 'compra',
 };
 const USERS_SHEET = 'usuarios';
 

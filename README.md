@@ -103,13 +103,13 @@ Si un escenario falla, el reporte incluye una captura de pantalla de la página 
 
 | Criterio de aceptación | Casos |
 |---|---|
-| Iniciar sesión con credenciales válidas | `TC-LOG-01` |
-| No iniciar sesión con credenciales inválidas | `TC-LOG-03` a `TC-LOG-06` |
-| Usuario bloqueado (`locked_out_user`) | `TC-LOG-02` |
-| Agregar productos desde la página de productos | `TC-CAR-01`, `TC-CAR-02` |
-| Ver los productos agregados en el carrito | `TC-CAR-03`, `TC-CAR-04` |
-| Completar la compra hasta la confirmación | `TC-COM-01` a `TC-COM-03` |
-| Validación de los datos de envío | `TC-COM-04` a `TC-COM-06` |
+| Iniciar sesión con credenciales válidas | `CP-LOGIN-01` |
+| No iniciar sesión con credenciales inválidas | `CP-LOGIN-03` a `CP-LOGIN-06` |
+| Usuario bloqueado (`locked_out_user`) | `CP-LOGIN-02` |
+| Agregar productos desde la página de productos | `CP-CARRITO-01`, `CP-CARRITO-02` |
+| Ver los productos agregados en el carrito | `CP-CARRITO-03`, `CP-CARRITO-04` |
+| Completar la compra hasta la confirmación | `CP-COMPRA-01` a `CP-COMPRA-03` |
+| Validación de los datos de envío | `CP-COMPRA-04` a `CP-COMPRA-06` |
 
 ## Datos de prueba
 
@@ -124,20 +124,20 @@ Scenario Outline: <id> - Completar la compra hasta la confirmación
   Then ve la confirmación del pedido
 
   Examples:
-    | id        |
-    | TC-COM-01 |
-    | TC-COM-02 |
+    | id           |
+    | CP-COMPRA-01 |
+    | CP-COMPRA-02 |
 ```
 
 | Hoja | Contenido |
 |---|---|
 | `usuarios` | Credenciales de `standard_user` y `locked_out_user` |
-| `login` | Usuario, contraseña y mensaje de error esperado (`TC-LOG-xx`) |
-| `carrito` | Productos a agregar y a quitar (`TC-CAR-xx`) |
-| `compra` | Productos, datos de envío y mensaje esperado (`TC-COM-xx`) |
+| `login` | Usuario, contraseña y mensaje de error esperado (`CP-LOGIN-xx`) |
+| `carrito` | Productos a agregar y a quitar (`CP-CARRITO-xx`) |
+| `compra` | Productos, datos de envío y mensaje esperado (`CP-COMPRA-xx`) |
 
 Reglas de la matriz:
-- El prefijo del ID indica la hoja: `TC-LOG` → `login`, `TC-CAR` → `carrito`, `TC-COM` → `compra`.
+- El prefijo del ID indica la hoja: `CP-LOGIN` → `login`, `CP-CARRITO` → `carrito`, `CP-COMPRA` → `compra`.
 - Una celda vacía deja el campo vacío en el formulario.
 - Varios productos se separan con `;`.
 

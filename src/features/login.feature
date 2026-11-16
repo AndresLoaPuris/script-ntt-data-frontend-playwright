@@ -14,8 +14,8 @@ Feature: Inicio de sesión
     Then ve el catálogo de productos
 
     Examples:
-      | id        |
-      | TC-LOG-01 |
+      | id          |
+      | CP-LOGIN-01 |
 
   @negativo
   Scenario Outline: <id> - Un usuario bloqueado no puede iniciar sesión
@@ -25,8 +25,8 @@ Feature: Inicio de sesión
     And permanece en la página de inicio de sesión
 
     Examples:
-      | id        |
-      | TC-LOG-02 |
+      | id          |
+      | CP-LOGIN-02 |
 
   @negativo
   Scenario Outline: <id> - No se puede iniciar sesión con credenciales inválidas
@@ -36,8 +36,8 @@ Feature: Inicio de sesión
     And permanece en la página de inicio de sesión
 
     Examples:
-      | id        |
-      | TC-LOG-03 |
-      | TC-LOG-04 |
-      | TC-LOG-05 |
-      | TC-LOG-06 |
+      | id          |
+      | CP-LOGIN-03 |
+      | CP-LOGIN-04 |
+      | CP-LOGIN-05 |
+      | CP-LOGIN-06 |

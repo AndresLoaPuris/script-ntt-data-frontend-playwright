@@ -63,7 +63,7 @@ El encabezado aparece en todas las páginas internas, así que se modela una sol
 
 ### Repositorio de datos de prueba
 
-`TestDataRepository` es el único que conoce el Excel: sabe en qué hoja buscar a partir del prefijo del ID y devuelve un `TestCase`. Si un ID, una hoja o una columna no existen, el error lo dice con exactitud, por ejemplo `No existe el caso TC-COM-09 en la hoja "compra"`. Las credenciales se centralizan en la hoja `usuarios`.
+`TestDataRepository` es el único que conoce el Excel: sabe en qué hoja buscar a partir del prefijo del ID y devuelve un `TestCase`. Si un ID, una hoja o una columna no existen, el error lo dice con exactitud, por ejemplo `No existe el caso CP-COMPRA-09 en la hoja "compra"`. Las credenciales se centralizan en la hoja `usuarios`.
 
 ### Hooks
 
@@ -83,9 +83,9 @@ El encabezado aparece en todas las páginas internas, así que se modela una sol
 
 | Usuario | Comportamiento esperado | Caso |
 |---|---|---|
-| `standard_user` | Inicia sesión, compra y completa el pedido | `TC-LOG-01`, `TC-CAR-xx`, `TC-COM-xx` |
-| `locked_out_user` | No puede iniciar sesión y ve el mensaje de usuario bloqueado | `TC-LOG-02` |
-| Credenciales inválidas | Contraseña incorrecta, usuario inexistente o campos vacíos muestran el error correspondiente | `TC-LOG-03` a `TC-LOG-06` |
+| `standard_user` | Inicia sesión, compra y completa el pedido | `CP-LOGIN-01`, `CP-CARRITO-xx`, `CP-COMPRA-xx` |
+| `locked_out_user` | No puede iniciar sesión y ve el mensaje de usuario bloqueado | `CP-LOGIN-02` |
+| Credenciales inválidas | Contraseña incorrecta, usuario inexistente o campos vacíos muestran el error correspondiente | `CP-LOGIN-03` a `CP-LOGIN-06` |
 
 ## Decisiones técnicas
 

@@ -13,9 +13,9 @@ Feature: Carrito de compras
     And cada producto agregado puede quitarse desde la página de productos
 
     Examples:
-      | id        |
-      | TC-CAR-01 |
-      | TC-CAR-02 |
+      | id            |
+      | CP-CARRITO-01 |
+      | CP-CARRITO-02 |
 
   Scenario Outline: <id> - Ver los productos agregados en el carrito
     Given el caso de prueba "<id>"
@@ -25,8 +25,8 @@ Feature: Carrito de compras
     Then el carrito muestra los productos agregados
 
     Examples:
-      | id        |
-      | TC-CAR-03 |
+      | id            |
+      | CP-CARRITO-03 |
 
   Scenario Outline: <id> - Quitar productos desde el carrito
     Given el caso de prueba "<id>"
@@ -37,5 +37,5 @@ Feature: Carrito de compras
     Then el carrito muestra solo los productos restantes
 
     Examples:
-      | id        |
-      | TC-CAR-04 |
+      | id            |
+      | CP-CARRITO-04 |

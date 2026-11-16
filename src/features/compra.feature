@@ -13,9 +13,9 @@ Feature: Compra de productos
     Then ve la confirmación del pedido
 
     Examples:
-      | id        |
-      | TC-COM-01 |
-      | TC-COM-02 |
+      | id           |
+      | CP-COMPRA-01 |
+      | CP-COMPRA-02 |
 
   Scenario Outline: <id> - El resumen de la compra muestra los productos y el total correcto
     Given el caso de prueba "<id>"
@@ -26,8 +26,8 @@ Feature: Compra de productos
     And el total es la suma de los precios más el impuesto
 
     Examples:
-      | id        |
-      | TC-COM-03 |
+      | id           |
+      | CP-COMPRA-03 |
 
   @negativo
   Scenario Outline: <id> - No se puede continuar la compra con datos de envío incompletos
@@ -39,7 +39,7 @@ Feature: Compra de productos
     And permanece en el formulario de datos de envío
 
     Examples:
-      | id        |
-      | TC-COM-04 |
-      | TC-COM-05 |
-      | TC-COM-06 |
+      | id           |
+      | CP-COMPRA-04 |
+      | CP-COMPRA-05 |
+      | CP-COMPRA-06 |
