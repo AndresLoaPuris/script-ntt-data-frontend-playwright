@@ -1,5 +1,7 @@
 # Sauce Demo · Pruebas E2E con Playwright y Cucumber
 
+[![E2E tests](https://github.com/AndresLoaPuris/script-ntt-data-frontend-playwright/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/AndresLoaPuris/script-ntt-data-frontend-playwright/actions/workflows/e2e-tests.yml)
+
 Suite de pruebas end-to-end para [Sauce Demo](https://www.saucedemo.com/), construida con **Playwright**, **Cucumber** y **TypeScript** siguiendo el patrón **Page Object Model**. Cubre el inicio de sesión con distintos tipos de usuario, el carrito de compras y el proceso de compra hasta la confirmación.
 
 Los escenarios están escritos en Gherkin con `Scenario Outline`, y los datos de cada caso se toman de una **matriz de Excel** a partir de su ID.
