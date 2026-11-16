@@ -93,4 +93,5 @@ El encabezado aparece en todas las páginas internas, así que se modela una sol
 - **`expect` de Playwright:** las aserciones web-first esperan automáticamente a que la página alcance el estado esperado, lo que evita esperas fijas y pruebas inestables.
 - **Navegador configurable:** la suite corre en Chromium por defecto y en Firefox o WebKit con la variable `BROWSER`.
 - **Ejecución en paralelo (2 procesos):** es posible porque cada escenario es independiente.
-- **CI en GitHub Actions:** cada push verifica los tipos, ejecuta la suite y publica el reporte con las capturas de los fallos.
+- **Reporte HTML con panel de métricas:** Cucumber genera un JSON y `scripts/generate-report.ts` lo convierte, con Multiple Cucumber HTML Reporter, en un reporte en español con gráficos, datos de la ejecución (navegador, versión, sistema operativo) y el detalle de cada caso con su captura si falló. Es un comando aparte (`npm run report`) para poder generarlo incluso cuando hay fallos.
+- **CI en GitHub Actions:** cada push verifica los tipos, ejecuta la suite, genera el reporte aunque haya fallos y lo publica como artefacto.

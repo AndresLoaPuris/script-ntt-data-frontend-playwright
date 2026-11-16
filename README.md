@@ -15,6 +15,7 @@ La estrategia de automatización y los patrones aplicados están explicados en [
 | Cucumber (`@cucumber/cucumber`) | 13.3 |
 | Playwright (`@playwright/test`) | 1.65 |
 | ExcelJS (lectura de Excel) | 4.4 |
+| Multiple Cucumber HTML Reporter | 4.6 |
 
 ## Requisitos
 
@@ -82,15 +83,23 @@ npm test -- --tags "@login or @compra"
 npm run typecheck
 ```
 
-### Reporte
+### Reportes
 
-Al terminar, Cucumber genera un reporte HTML:
+Después de ejecutar las pruebas, genera el reporte HTML con:
 
+```bash
+npm run report
 ```
-reports/cucumber-report.html
-```
 
-Si un escenario falla, el reporte incluye una captura de pantalla de la página en ese momento.
+Se crea en `reports/html/index.html` y se abre directamente en el navegador. Está en español e incluye:
+- un panel con gráficos del estado de funcionalidades, escenarios y pasos,
+- los datos de la ejecución: navegador y versión, modo headless, sistema operativo, versión de Node, entorno y duración,
+- el detalle de cada escenario con su ID, sus pasos y, si falló, el error y la **captura de pantalla** de la página en ese momento,
+- los escenarios y pasos más lentos.
+
+Cucumber también deja su reporte estándar en `reports/cucumber-report.html`.
+
+`npm run report` es un comando aparte para que el reporte se pueda generar aunque haya pruebas fallidas, que es justo cuando más se necesita. Usa el navegador indicado en `BROWSER`, así que conviene ejecutarlo con la misma configuración que las pruebas.
 
 ## Escenarios
 
@@ -154,6 +163,7 @@ script-ntt data-frontend-playwright/
 ├── package.json · tsconfig.json · cucumber.js
 ├── docs/ESTRATEGIA.md
 ├── .github/workflows/e2e-tests.yml
+├── scripts/generate-report.ts       Genera el reporte HTML a partir del JSON de Cucumber
 └── src/
     ├── features/                    Escenarios en Gherkin
     │   ├── login.feature
@@ -186,4 +196,4 @@ script-ntt data-frontend-playwright/
 
 ## Integración continua
 
-El workflow [e2e-tests.yml](.github/workflows/e2e-tests.yml) se ejecuta en cada push y pull request a `main`: instala dependencias y Chromium, verifica los tipos, corre la suite y publica el reporte de Cucumber como artefacto descargable.
+El workflow [e2e-tests.yml](.github/workflows/e2e-tests.yml) se ejecuta en cada push y pull request a `main`: instala dependencias y Chromium, verifica los tipos, corre la suite, genera el reporte HTML aunque haya fallos y publica los reportes como artefacto descargable (`reportes-e2e`).

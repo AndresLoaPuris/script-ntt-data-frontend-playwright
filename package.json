@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "cucumber-js",
+    "report": "node scripts/generate-report.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
@@ -16,6 +17,7 @@
     "@playwright/test": "1.65.1",
     "@types/node": "24.19.2",
     "exceljs": "4.4.0",
+    "multiple-cucumber-html-reporter": "4.6.0",
     "typescript": "7.0.2"
   }
 }

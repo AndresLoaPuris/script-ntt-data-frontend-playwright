@@ -15,14 +15,14 @@ BeforeAll(async function () {
   browser = await browserTypes[config.browser].launch({ headless: config.headless });
 });
 
-Before(async function (this: SauceDemoWorld) {
+Before({ name: 'Abrir un contexto de navegador nuevo' }, async function (this: SauceDemoWorld) {
   this.context = await browser.newContext({ baseURL: config.baseUrl });
   this.page = await this.context.newPage();
   this.page.setDefaultTimeout(config.actionTimeoutMs);
   this.pages = new SauceDemoPages(this.page);
 });
 
-After(async function (this: SauceDemoWorld, { result }) {
+After({ name: 'Adjuntar captura si falló y cerrar el contexto' }, async function (this: SauceDemoWorld, { result }) {
   if (result?.status === Status.FAILED) {
     this.attach(await this.page.screenshot({ fullPage: true }), 'image/png');
   }

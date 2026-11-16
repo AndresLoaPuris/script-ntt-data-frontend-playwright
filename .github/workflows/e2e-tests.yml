@@ -31,9 +31,13 @@ jobs:
       - name: Ejecutar pruebas
         run: npm test
 
-      - name: Publicar reporte de Cucumber
+      - name: Generar reporte HTML
+        if: always()
+        run: npm run report
+
+      - name: Publicar reportes
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: cucumber-report
+          name: reportes-e2e
           path: reports
